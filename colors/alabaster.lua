@@ -9,27 +9,25 @@ local theme
 ---@diagnostic disable: undefined-global
 if vim.o.background == "dark" then
     -- terminal colors
-    vim.g.terminal_color_0 = "#000000"
-    vim.g.terminal_color_1 = "#d2322d"
-    vim.g.terminal_color_2 = "#6abf40"
-    vim.g.terminal_color_3 = "#cd974b"
-    vim.g.terminal_color_4 = "#217EBC"
-    vim.g.terminal_color_5 = "#9B3596"
-    vim.g.terminal_color_6 = "#178F79"
-    vim.g.terminal_color_7 = "#cecece"
-    vim.g.terminal_color_8 = "#333333"
-    vim.g.terminal_color_9 = "#c33c33"
-    vim.g.terminal_color_10 = "#95cb82"
-    vim.g.terminal_color_11 = "#dfdf8e"
-    vim.g.terminal_color_12 = "#71aed7"
-    vim.g.terminal_color_13 = "#cc8bc9"
-    vim.g.terminal_color_14 = "#47BEA9"
+    vim.g.terminal_color_0 = "#262626"
+    vim.g.terminal_color_1 = "#d75f5f"
+    vim.g.terminal_color_2 = "#87af5f"
+    vim.g.terminal_color_3 = "#d7af5f"
+    vim.g.terminal_color_4 = "#6699CC"
+    vim.g.terminal_color_5 = "#8787af"
+    vim.g.terminal_color_6 = "#80aa9e"
+    vim.g.terminal_color_7 = "#e4e4e4"
+    vim.g.terminal_color_8 = "#585858"
+    vim.g.terminal_color_9 = "#ff8787"
+    vim.g.terminal_color_10 = "#afd75f"
+    vim.g.terminal_color_11 = "#ffd787"
+    vim.g.terminal_color_12 = "#87afd"
+    vim.g.terminal_color_13 = "#d787af"
+    vim.g.terminal_color_14 = "#89b482"
     vim.g.terminal_color_15 = "#ffffff"
 
     -- colors
-    local bg = "#0e1415"
-    local fg = "#cecece"
-    local punct_fg = "#708b8d"
+    local bg = "None"
     local def_fg = "#71ade7"
     local const_fg = "#cc8bc9"
     local active = "#cd974b"
@@ -38,8 +36,7 @@ if vim.o.background == "dark" then
     local diffadd = "#6abf40"
     local diffdelete = "#d2322d"
     local diffchange = "#ec8013"
-    local statusline = "#162022"
-    local comment = "#dfdf8e"
+    local comment = "#ffc66e"
     local dim_comment = "#696969"
     local mistake = {
         fg = "#c33c33",
@@ -50,33 +47,31 @@ if vim.o.background == "dark" then
     local hint = "#8ebeec"
     local info = "#88cc66"
     local ansi = {
-        black = "#333333",
-        blue = "#71aed7",
-        brightyellow = "#dfdf8e",
-        cyan = "#47bea9",
-        green = "#95cb82",
-        magenta = "#cc8bc9",
-        red = "#c33c33",
-        white = "#cecece",
-        yellow = "#cd974b",
+        black = vim.g.terminal_color_0,
+        blue = vim.g.terminal_color_4,
+        brightyellow = vim.g.terminal_color_11,
+        cyan = vim.g.terminal_color_6,
+        green = vim.g.terminal_color_2,
+        magenta = vim.g.terminal_color_5,
+        red = vim.g.terminal_color_1,
+        white = vim.g.terminal_color_15,
+        yellow = vim.g.terminal_color_3,
     }
+    local fg = "None"
     local comment_fg = vim.g.alabaster_dim_comments and dim_comment or comment
-    local pmenu_bg = "#182325"
-    local float_bg = vim.g.alabaster_floatborder and bg or pmenu_bg
-    local floatborder = vim.g.alabaster_floatborder and { bg = bg, fg = "#333333" }
-        or {
-            bg = float_bg,
-            fg = float_bg,
-        }
+    local statusline = ansi.black
+    local pmenu_bg = 'None'
+    local float_bg = pmenu_bg
+    local floatborder = { bg = 'None', fg = ansi.white }
     theme = {
         Comment = { fg = comment_fg },
-        ColorColumn = { bg = "#182325" },
+        ColorColumn = { bg = ansi.black },
         Conceal = { fg = "#b0b0b0" },
         Cursor = { bg = active, fg = "#000000" },
         -- lCursor      { }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
         -- CursorIM     { }, -- like Cursor, but used when in IME mode |CursorIM|
-        CursorColumn = { bg = "#182325" },
-        CursorLine = { bg = "#182325" },
+        CursorColumn = { bg = ansi.black },
+        CursorLine = { bg = ansi.black },
         Directory = { fg = ansi.blue },
         DiffAdd = { bg = "#244032", fg = "#56d364" },
         DiffDelete = { bg = "#462c32", fg = "#f85149" },
@@ -87,7 +82,7 @@ if vim.o.background == "dark" then
         TermCursorNC = { fg = bg, bg = fg },
         ErrorMsg = { fg = error, bg = mistake.bg },
         VertSplit = { fg = "#2b3d40" },
-        Folded = { bg = "#182325", fg = "#7d7d7d" },
+        Folded = { bg = ansi.black, fg = "#7d7d7d" },
         FoldColumn = { bg = bg, fg = "#4d4d4d" },
         SignColumn = {},
         IncSearch = { bg = ansi.yellow, fg = bg },
@@ -109,7 +104,7 @@ if vim.o.background == "dark" then
         PmenuSbar = { bg = "#212f31" },
         PmenuThumb = { bg = "#47666b" },
         Question = { fg = diffadd },
-        QuickFixLine = { bg = "#182325" },
+        QuickFixLine = { bg = ansi.black },
         Search = { bg = "#354c50" },
         SpecialKey = { fg = ansi.cyan },
         SpellBad = { undercurl = 1, sp = ansi.red },
@@ -122,7 +117,7 @@ if vim.o.background == "dark" then
         TabLineFill = { bg = statusline },
         TabLineSel = { bg = statusline, fg = ansi.blue },
         Title = { fg = const_fg },
-        Visual = { bg = "#293334" },
+        Visual = { bg = vim.g.terminal_color_8 },
         VisualNOS = { bg = "#293334" },
         WarningMsg = { fg = "#e1ad4c" },
         WildMenu = { bg = "#354c50" },
@@ -136,7 +131,7 @@ if vim.o.background == "dark" then
         Number = { fg = const_fg },
         Boolean = { fg = const_fg },
         Float = { fg = const_fg },
-        Operator = { fg = punct_fg },
+        Operator = { fg = fg },
 
         --- SYNTAX II: TS groups have their own definition, the below are defined to have somewhat working hl w/o treesitter
         Identifier = { fg = ansi.white },
@@ -220,9 +215,9 @@ if vim.o.background == "dark" then
         TSParameter = { fg = ansi.white },
         TSParameterReference = { fg = ansi.white },
         TSProperty = { fg = ansi.white },
-        TSPunctDelimiter = { fg = punct_fg },
+        TSPunctDelimiter = { fg = fg },
         TSPunctBracket = { fg = "#bababa" },
-        TSPunctSpecial = { fg = punct_fg },
+        TSPunctSpecial = { fg = fg },
         TSRepeat = { fg = ansi.white },
         TSString = { fg = string_fg },
         TSStringRegex = { bg = "#1d292b", fg = const_fg },
@@ -233,7 +228,7 @@ if vim.o.background == "dark" then
         TSVariable = { fg = ansi.white },
         TSVariableBuiltin = { fg = ansi.white },
         TSTag = { fg = ansi.white },
-        TSTagDelimiter = { fg = punct_fg },
+        TSTagDelimiter = { fg = fg },
         TSText = { fg = ansi.white },
         ["@attribute"] = {},
         ["@constructor"] = { fg = ansi.white },
@@ -256,9 +251,9 @@ if vim.o.background == "dark" then
         ["@parameter"] = { fg = ansi.white },
         ["@parameter.reference"] = { fg = ansi.white },
         ["@property"] = { fg = ansi.white },
-        ["@punctuation.delimiter"] = { fg = punct_fg },
+        ["@punctuation.delimiter"] = { fg = fg },
         ["@punctuation.bracket"] = { fg = "#bababa" },
-        ["@punctuation.special"] = { fg = punct_fg },
+        ["@punctuation.special"] = { fg = fg },
         ["@repeat"] = { fg = ansi.white },
         ["@string"] = { fg = string_fg },
         ["@string.regex"] = { bg = "#1d292b", fg = const_fg },
@@ -269,15 +264,20 @@ if vim.o.background == "dark" then
         ["@variable"] = { fg = ansi.white },
         ["@variable.builtin"] = { fg = ansi.white },
         ["@tag"] = { fg = ansi.white },
-        ["@tag.delimiter"] = { fg = punct_fg },
+        ["@tag.delimiter"] = { fg = fg },
         ["@text"] = { fg = ansi.white },
         ["@text.note"] = { bg = "#1d292b", fg = ansi.blue },
         ["@text.warning"] = { bg = "#d0d058", fg = bg },
 
+        -- LSP
+        ["@lsp.mod.declaration"] = { fg = def_fg },
+        ["@lsp.typemod.parameter.declaration"] = { fg = fg },
+        ["@lsp.typemod.selfKeyword.declaration"] = { fg = fg },
+
         --- Theme specific
         ["@AlabasterConstant"] = { fg = const_fg },
         ["@AlabasterDefinition"] = { fg = def_fg },
-        ["@AlabasterPunct"] = { fg = punct_fg },
+        ["@AlabasterPunct"] = { fg = fg },
         ["@AlabasterString"] = { fg = string_fg },
         ["@AlabasterHashbang"] = { fg = dim_comment },
         --- Gitsigns
@@ -285,13 +285,13 @@ if vim.o.background == "dark" then
         GitSignsChange = { fg = diffchange },
         GitSignsDelete = { fg = diffdelete },
         --- Telescope
-        TelescopeBorder = { fg = "#2b3d40" },
-        TelescopeMatching = { fg = "#f09942" },
+        TelescopeBorder = { fg = ansi.white },
+        TelescopeMatching = { fg = ansi.brightyellow },
         TelescopeMultiSelection = { fg = ansi.magenta },
         TelescopePromptPrefix = { fg = ansi.blue },
         TelescopeSelectionCaret = { fg = mistake.fg },
         TelescopeTitle = { fg = ansi.brightyellow },
-        TelescopeResultsTitle = { fg = ansi.yellow },
+        TelescopeResultsTitle = { fg = ansi.brightyellow },
         --- fzf-lua
         FzfLuaBorder = { fg = "#2b3d40" },
         --- Neogit
@@ -403,7 +403,6 @@ else
     -- colors
     local bg = "#f7f7f7"
     local fg = "#000000"
-    local punct_fg = "#777777"
     local def_fg = "#325cc0"
     local const_fg = "#7a3e9d"
     local active = "#ffbc5d"
@@ -511,7 +510,7 @@ else
         Number = { fg = const_fg },
         Boolean = { fg = const_fg },
         Float = { fg = const_fg },
-        Operator = { fg = punct_fg },
+        Operator = { fg = fg },
 
         --- SYNTAX II: TS groups have their own definition, the below are defined to have somewhat working hl w/o treesitter
         Identifier = { fg = ansi.black },
@@ -595,9 +594,9 @@ else
         TSParameter = { fg = ansi.black },
         TSParameterReference = { fg = ansi.black },
         TSProperty = { fg = ansi.black },
-        TSPunctDelimiter = { fg = punct_fg },
-        TSPunctBracket = { fg = punct_fg },
-        TSPunctSpecial = { fg = punct_fg },
+        TSPunctDelimiter = { fg = fg },
+        TSPunctBracket = { fg = fg },
+        TSPunctSpecial = { fg = fg },
         TSRepeat = { fg = ansi.black },
         TSString = { fg = string_fg },
         TSStringRegex = { bg = bg, fg = "#777777" },
@@ -608,7 +607,7 @@ else
         TSVariable = { fg = ansi.black },
         TSVariableBuiltin = { fg = ansi.black },
         TSTag = { fg = ansi.black },
-        TSTagDelimiter = { fg = punct_fg },
+        TSTagDelimiter = { fg = fg },
         TSText = { fg = ansi.black },
 
         ["@attribute"] = {},
@@ -632,9 +631,9 @@ else
         ["@parameter"] = { fg = ansi.black },
         ["@parameter.reference"] = { fg = ansi.black },
         ["@property"] = { fg = ansi.black },
-        ["@punctuation.delimiter"] = { fg = punct_fg },
-        ["@punctuation.bracket"] = { fg = punct_fg },
-        ["@punctuation.special"] = { fg = punct_fg },
+        ["@punctuation.delimiter"] = { fg = fg },
+        ["@punctuation.bracket"] = { fg = fg },
+        ["@punctuation.special"] = { fg = fg },
         ["@repeat"] = { fg = ansi.black },
         ["@string"] = { fg = string_fg },
         ["@string.regex"] = { bg = bg, fg = "#777777" },
@@ -643,9 +642,9 @@ else
         ["@type"] = { fg = ansi.black },
         ["@type.builtin"] = { fg = ansi.black },
         ["@variable"] = { fg = ansi.black },
-        ["@variable.builtin"] = { fg = ansi.black },
+        ["@variable.builtin"] = { fg = const_fg },
         ["@tag"] = { fg = ansi.black },
-        ["@tag.delimiter"] = { fg = punct_fg },
+        ["@tag.delimiter"] = { fg = fg },
         ["@text"] = { fg = ansi.black },
         ["@text.note"] = { bg = "#dddddd", fg = ansi.blue },
         ["@text.warning"] = { bg = "#FFDEAA", fg = ansi.blue },
@@ -653,7 +652,7 @@ else
         --- Theme specific
         ["@AlabasterConstant"] = { fg = const_fg },
         ["@AlabasterDefinition"] = { fg = def_fg },
-        ["@AlabasterPunct"] = { fg = punct_fg },
+        ["@AlabasterPunct"] = { fg = fg },
         ["@AlabasterString"] = { fg = string_fg },
         ["@AlabasterHashbang"] = { fg = dim_comment },
         --- Gitsigns
