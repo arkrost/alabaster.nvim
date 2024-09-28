@@ -27,9 +27,7 @@ if vim.o.background == "dark" then
     vim.g.terminal_color_15 = "#ffffff"
 
     -- colors
-    local bg = "#0e1415"
-    local fg = "#cecece"
-    local punct_fg = "#708b8d"
+    local bg = "#1f1f28"
     local def_fg = "#71ade7"
     local const_fg = "#cc8bc9"
     local active = "#cd974b"
@@ -39,7 +37,7 @@ if vim.o.background == "dark" then
     local diffdelete = "#d2322d"
     local diffchange = "#ec8013"
     local statusline = "#162022"
-    local comment = "#dfdf8e"
+    local comment = "#ffc66e"
     local dim_comment = "#696969"
     local mistake = {
         fg = "#c33c33",
@@ -57,9 +55,10 @@ if vim.o.background == "dark" then
         green = "#95cb82",
         magenta = "#cc8bc9",
         red = "#c33c33",
-        white = "#cecece",
+        white = "#e0e0d7",
         yellow = "#cd974b",
     }
+    local fg = ansi.white;
     local comment_fg = vim.g.alabaster_dim_comments and dim_comment or comment
     local pmenu_bg = "#182325"
     local float_bg = vim.g.alabaster_floatborder and bg or pmenu_bg
@@ -136,7 +135,7 @@ if vim.o.background == "dark" then
         Number = { fg = const_fg },
         Boolean = { fg = const_fg },
         Float = { fg = const_fg },
-        Operator = { fg = punct_fg },
+        Operator = { fg = fg },
 
         --- SYNTAX II: TS groups have their own definition, the below are defined to have somewhat working hl w/o treesitter
         Identifier = { fg = ansi.white },
@@ -220,9 +219,9 @@ if vim.o.background == "dark" then
         TSParameter = { fg = ansi.white },
         TSParameterReference = { fg = ansi.white },
         TSProperty = { fg = ansi.white },
-        TSPunctDelimiter = { fg = punct_fg },
+        TSPunctDelimiter = { fg = fg },
         TSPunctBracket = { fg = "#bababa" },
-        TSPunctSpecial = { fg = punct_fg },
+        TSPunctSpecial = { fg = fg },
         TSRepeat = { fg = ansi.white },
         TSString = { fg = string_fg },
         TSStringRegex = { bg = "#1d292b", fg = const_fg },
@@ -233,7 +232,7 @@ if vim.o.background == "dark" then
         TSVariable = { fg = ansi.white },
         TSVariableBuiltin = { fg = ansi.white },
         TSTag = { fg = ansi.white },
-        TSTagDelimiter = { fg = punct_fg },
+        TSTagDelimiter = { fg = fg },
         TSText = { fg = ansi.white },
         ["@attribute"] = {},
         ["@constructor"] = { fg = ansi.white },
@@ -256,9 +255,9 @@ if vim.o.background == "dark" then
         ["@parameter"] = { fg = ansi.white },
         ["@parameter.reference"] = { fg = ansi.white },
         ["@property"] = { fg = ansi.white },
-        ["@punctuation.delimiter"] = { fg = punct_fg },
+        ["@punctuation.delimiter"] = { fg = fg },
         ["@punctuation.bracket"] = { fg = "#bababa" },
-        ["@punctuation.special"] = { fg = punct_fg },
+        ["@punctuation.special"] = { fg = fg },
         ["@repeat"] = { fg = ansi.white },
         ["@string"] = { fg = string_fg },
         ["@string.regex"] = { bg = "#1d292b", fg = const_fg },
@@ -269,15 +268,20 @@ if vim.o.background == "dark" then
         ["@variable"] = { fg = ansi.white },
         ["@variable.builtin"] = { fg = ansi.white },
         ["@tag"] = { fg = ansi.white },
-        ["@tag.delimiter"] = { fg = punct_fg },
+        ["@tag.delimiter"] = { fg = fg },
         ["@text"] = { fg = ansi.white },
         ["@text.note"] = { bg = "#1d292b", fg = ansi.blue },
         ["@text.warning"] = { bg = "#d0d058", fg = bg },
 
+        -- LSP
+        ["@lsp.mod.declaration"] = { fg = def_fg },
+        ["@lsp.typemod.parameter.declaration"] = { fg = fg },
+        ["@lsp.typemod.selfKeyword.declaration"] = { fg = fg },
+
         --- Theme specific
         ["@AlabasterConstant"] = { fg = const_fg },
         ["@AlabasterDefinition"] = { fg = def_fg },
-        ["@AlabasterPunct"] = { fg = punct_fg },
+        ["@AlabasterPunct"] = { fg = fg },
         ["@AlabasterString"] = { fg = string_fg },
         ["@AlabasterHashbang"] = { fg = dim_comment },
         --- Gitsigns
@@ -403,7 +407,6 @@ else
     -- colors
     local bg = "#f7f7f7"
     local fg = "#000000"
-    local punct_fg = "#777777"
     local def_fg = "#325cc0"
     local const_fg = "#7a3e9d"
     local active = "#ffbc5d"
@@ -511,7 +514,7 @@ else
         Number = { fg = const_fg },
         Boolean = { fg = const_fg },
         Float = { fg = const_fg },
-        Operator = { fg = punct_fg },
+        Operator = { fg = fg },
 
         --- SYNTAX II: TS groups have their own definition, the below are defined to have somewhat working hl w/o treesitter
         Identifier = { fg = ansi.black },
@@ -595,9 +598,9 @@ else
         TSParameter = { fg = ansi.black },
         TSParameterReference = { fg = ansi.black },
         TSProperty = { fg = ansi.black },
-        TSPunctDelimiter = { fg = punct_fg },
-        TSPunctBracket = { fg = punct_fg },
-        TSPunctSpecial = { fg = punct_fg },
+        TSPunctDelimiter = { fg = fg },
+        TSPunctBracket = { fg = fg },
+        TSPunctSpecial = { fg = fg },
         TSRepeat = { fg = ansi.black },
         TSString = { fg = string_fg },
         TSStringRegex = { bg = bg, fg = "#777777" },
@@ -608,7 +611,7 @@ else
         TSVariable = { fg = ansi.black },
         TSVariableBuiltin = { fg = ansi.black },
         TSTag = { fg = ansi.black },
-        TSTagDelimiter = { fg = punct_fg },
+        TSTagDelimiter = { fg = fg },
         TSText = { fg = ansi.black },
 
         ["@attribute"] = {},
@@ -632,9 +635,9 @@ else
         ["@parameter"] = { fg = ansi.black },
         ["@parameter.reference"] = { fg = ansi.black },
         ["@property"] = { fg = ansi.black },
-        ["@punctuation.delimiter"] = { fg = punct_fg },
-        ["@punctuation.bracket"] = { fg = punct_fg },
-        ["@punctuation.special"] = { fg = punct_fg },
+        ["@punctuation.delimiter"] = { fg = fg },
+        ["@punctuation.bracket"] = { fg = fg },
+        ["@punctuation.special"] = { fg = fg },
         ["@repeat"] = { fg = ansi.black },
         ["@string"] = { fg = string_fg },
         ["@string.regex"] = { bg = bg, fg = "#777777" },
@@ -643,9 +646,9 @@ else
         ["@type"] = { fg = ansi.black },
         ["@type.builtin"] = { fg = ansi.black },
         ["@variable"] = { fg = ansi.black },
-        ["@variable.builtin"] = { fg = ansi.black },
+        ["@variable.builtin"] = { fg = const_fg },
         ["@tag"] = { fg = ansi.black },
-        ["@tag.delimiter"] = { fg = punct_fg },
+        ["@tag.delimiter"] = { fg = fg },
         ["@text"] = { fg = ansi.black },
         ["@text.note"] = { bg = "#dddddd", fg = ansi.blue },
         ["@text.warning"] = { bg = "#FFDEAA", fg = ansi.blue },
@@ -653,7 +656,7 @@ else
         --- Theme specific
         ["@AlabasterConstant"] = { fg = const_fg },
         ["@AlabasterDefinition"] = { fg = def_fg },
-        ["@AlabasterPunct"] = { fg = punct_fg },
+        ["@AlabasterPunct"] = { fg = fg },
         ["@AlabasterString"] = { fg = string_fg },
         ["@AlabasterHashbang"] = { fg = dim_comment },
         --- Gitsigns
